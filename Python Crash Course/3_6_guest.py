@@ -1,0 +1,15 @@
+guests = []
+guests.append("blas")
+guests.append("natalia")
+guests.append("alejandro")
+print(guests)
+guests.insert(1,"yady")
+guests.insert(3,"andrea")
+print(guests)
+name = guests.pop()
+print(name)
+name = guests.pop(1)
+print(name)
+print(guests)
+del guests[1]
+print(guests)

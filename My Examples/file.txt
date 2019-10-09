@@ -1,0 +1,5 @@
+This is a sample
+test file that will
+be use in sample python
+program to learn how to work
+with files.
