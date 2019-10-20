@@ -32,6 +32,10 @@ if __name__ == "__main__":
     dryer_proc = mp.Process(target=dryer, args=(dish_queue,))
     dryer_proc.daemon = True
     dryer_proc.start()
+    dish_queue = queue.Queue()
+    for i in range(2):
+        dryer_thread = threading.Thread(target=dryer, args=(dish_queue,))
+        dryer_thread.start()
 
     dishes = ['salad','bread','entree','dessert']
     washer(dishes, dish_queue)
