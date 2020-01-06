@@ -1,6 +1,0 @@
-pizzas = ["peperoni","supreme","pinneaple and ham"]
-
-for pizza in pizzas:
-    print("I like " + pizza.title() + " pizza")
-
-print("I will order pizza this weekend")
