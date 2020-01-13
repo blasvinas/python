@@ -1,4 +1,6 @@
-#Displays Hello Python world! on the screen
+#Displays a meesage to the screen
+message = "Hello Python world!"
+print(message)
 
-print("Hello Python world!")
-
+message = "Hello Python Crash Course world!"
+print(message)
