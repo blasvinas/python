@@ -1,4 +1,4 @@
-#Python Notes
+# Python Notes
 This file has some basic notes about how to use Python
 
 # Strings
