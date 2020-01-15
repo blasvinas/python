@@ -1,9 +1,9 @@
 # Python Notes
 This file has some basic notes about how to use Python
 
-[Variables] Variables
+[Variables][Variables]
 
-# [Variables]: Variables
+[Variables]: Variables
 In python variable a just references to an object in memory.  For example:
 
  x = 7
