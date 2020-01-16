@@ -46,8 +46,13 @@ You can use underscores to improve readability.  For example 1_000_000  is the s
 To conver data type to an integer iuse int().  For example:
 
 ```python
-int(98.6)  # 98
-int(1.0e4) # 10000
+bool(1) # True
+bool(0) # False
+int(10.3)  # 10
+int(1.0e3) # 1000
+int('23')  # 23
+float(20) # 20.0
+float('50.5') # 50.5
 ```
 
 # Strings
