@@ -8,9 +8,10 @@ This file has some basic notes about how to use Python
 # Variables
 In python variable a just references to an object in memory.  For example:
 
+```python
  x = 7
-
  y = x
+ ```
 
 
 The first line creates a integer object in memory and then makes x refers to it.  The second line makes y refers to the same object.
@@ -39,6 +40,15 @@ You can use underscores to improve readability.  For example 1_000_000  is the s
 | //        | Integer Division  | 9 // 4    | 2         |
 | %         | Modulus           | 9 % 4     | 1         |
 | **        | Exponentiation    | 2 ** 3    | 8         |
+
+## Type Conversions
+
+To conver data type to an integer iuse int().  For example:
+
+```python
+int(98.6)  # 98
+int(1.0e4) # 10000
+```
 
 # Strings
 In python you can use single or double quotes for your string.  For example:
