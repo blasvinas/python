@@ -32,7 +32,13 @@ You can use underscores to improve readability.  For example 1_000_000  is the s
 
 | Operator | Description | Example | Result |
 |:-------- | :---------- | :------ | :----- |
-| +        | Addition    | 5 + 8   | 13     |
+| +        | Addition    | 2 + 3   | 5     |
+| -        | Substraction    | 20 - 5  | 15     |
+| *        | Multiplication    | 9 * 4  | 36     |
+| /        | Floating Division    | 10 / 4  | 2.5     |
+| //       | Integer Division    | 9 // 4  | 2     |
+| %        | Modulus    | 9 % 4  | 1     |
+| **       | Exponentiation    | 2 ** 3   | 8     |
 
 # Strings
 In python you can use single or double quotes for your string.  For example:
