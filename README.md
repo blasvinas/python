@@ -161,7 +161,115 @@ else:
     print('Just right')
 ```
 # Strings
-In python you can use single or double quotes for your string.  For example:
+In Python, string are immutable.  
+
+You can use single or double quotes for your string.  For example:
 
 * 'This is a sample string'
 * "This is a sample string"
+
+Also you can use triple quotes strings using either ''' or """.  This is use for multi-liner strings.  For example:
+
+```python
+s = '''This is a 
+    string containing 
+    multiple
+    lines
+```
+
+You can format string using f or F  For example:
+
+```python
+a = 5
+b = 10
+c = a + b
+s = f'The sum of {a} + {b} is {c}' # 'The sum of 5 + 10 is 15'
+```
+Also you can start a string with r or R to create a raw string.  Raw string  prevent escape sequences.  For example"
+
+```python
+s = r'Use \n to add a new line'  # 
+print(s) # Use \n to add a new line
+```
+
+## Convertion to string
+
+You can convert other type to string using the str() function.  For example:
+
+```python
+str(20.6)  # '25.6'
+str(False) # 'False'
+```
+## Concatenate strings
+
+You can concanenatestring using +.  For example:
+
+```python
+a = 'Hello'
+b = 'World!'
+s = a + ' ' + b
+print(s) #Hello World!
+```
+## Duplicate a string
+
+You can duplicate a string using *.  For example:
+
+```python
+>>> a = 'Hello'
+>>> s = a * 5
+>>> print(s) # HelloHelloHelloHelloHello
+```
+## Get individual characters
+You can use [] to get individual characters from strings.  For example:
+
+ ```python
+s = '123456789'
+s[0] # '1'
+s[1] # '2'
+s[-1] # '9'
+s[-2] # '8'
+s[5] # '6'
+ ```
+## Substrings
+
+You can get a substring using slice.  You define a slice using [], start, end, and step.  
+* [:] The whole string
+* [start:]  from start to the end
+* [: end] from the beginning to one before end
+* [start : end] from start to one before end
+* [start: end: step] from start to one before end, skipping character by step.
+
+Examples:
+
+```python
+s = '123456789'
+s[:] #'123456789'
+s[3:] # '456789'
+s[:5] # '12345'
+s[::2] #'13579'
+s[-1::-1] #'987654321'
+```
+## Common string functions
+
+### len()
+You can get the length of a string using len() for example:
+
+```python
+s = '123456789'
+print(len(s)) # 9
+```
+### split()
+split() takes a string a retuen a list of smaller string based on the separator.  For example:
+
+```python
+s = 'one, two, three, four, five'
+s.split(',') # ['one', ' two', ' three', ' four', ' five']
+```
+
+### join()
+join() is the opposite of split.  It takes a list and retun a string with each item separated by the specified separator.  For example:
+
+```python
+list = ['one', ' two', ' three', ' four', ' five']
+s = ','.join(list) # 'one, two, three, four, five'
+```
