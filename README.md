@@ -138,7 +138,7 @@ You can do multiple comparisons using in.  For example:
 number in [1, 2, 3 ,4 ,5]
 ```
 
-## Walrun operator
+## Walrus operator
  The walrus operator let you combine assigment and conditional test.  For example:
 
 ```python
