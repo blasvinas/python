@@ -73,9 +73,93 @@ print(f'The number of seconds in a day is {seconds_per_day}')
 print(f'The number of hours in a day are: {seconds_per_day / seconds_per_hour}')
 ```
 
-# if
+# if, elif, and else
 
+Below are some of the code structures using if
 
+```python
+if condition:
+    statement1
+    statement2
+    ...
+
+if condition:
+    statements
+else:
+    statement
+
+if condition:
+    statements
+elif condition:
+    statements
+else:
+    statements
+```
+
+## Comparison operators
+
+| Operator  | Description           |
+| --------- | --------------------- |
+| ==        | equality              |
+| !=        | inequality            |
+| <         | less than             |
+| <=        | less than or equal    |
+| >         | greater than          |
+| >=        | greater than or equal |
+
+## Logical operators
+
+* and
+* or
+* not
+
+If you have multiple and operation using one variable, Python let you do this:
+
+```python
+2 < y < 8 # The same as 2 < y and y < 8
+```
+
+## False values
+ The following are consided false
+
+ * None
+ * 0
+ * 0.0
+ * ''
+* []
+* {}
+* set()
+
+## multiple comparisons with in
+
+You can do multiple comparisons using in.  For example:
+
+```python
+number in [1, 2, 3 ,4 ,5]
+```
+
+## Walrun operator
+ The walrus operator let you combine assigment and conditional test.  For example:
+
+```python
+if number := x - y > 0:
+    print('Positive')
+else:
+    print('Negative')
+```
+## Example usinfg if - elif - else
+
+```python
+secret = 5
+guess = 2
+
+if secret > guess:
+    print('Too low')
+elif secret < guess:
+    print('Too high')
+else:
+    print('Just right')
+```
 # Strings
 In python you can use single or double quotes for your string.  For example:
 
