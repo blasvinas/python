@@ -192,7 +192,7 @@ s = r'Use \n to add a new line'  #
 print(s) # Use \n to add a new line
 ```
 
-## Convertion to string
+## Convert to string
 
 You can convert other type to string using the str() function.  For example:
 
@@ -273,3 +273,58 @@ join() is the opposite of split.  It takes a list and retun a string with each i
 list = ['one', ' two', ' three', ' four', ' five']
 s = ','.join(list) # 'one, two, three, four, five'
 ```
+### replace()
+Use replace() to substitute a part of a string with another. The sytanx is replace(old string, new string, how many instances) For example:
+
+```python
+s = 'I like C++ programming'
+s.replace('C++','Python') # 'I like Python programming'
+```
+If you omit the number of instances, it only replace the first one.
+
+### strip()
+
+You can remove whitesapces or other chararter from the begining or the end of a string using strip().  If you do not specify any parameters, whitespaces ill be remove.  You can specify other charaters.  lstrip() remove only from the left, and rstrip() just from ther right.  For example:
+
+```python
+s = '         Hello      '
+s.strip() # 'Hello'
+s.lstrip() # 'Hello      '
+s.rstrip() # '         Hello'
+
+>>> string.whitespace
+' \t\n\r\x0b\x0c'
+>>> string.punctuation
+'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+>>> s = '>>>>Hello Word !!!!.'
+>>> s.strip(string.punctuation)
+'Hello Word '
+```
+
+### startwith() and endswith()
+You you want to check if a string starts or ends with a prticular substring you can use startswith(substring) or endswith(substring).  For example:
+
+```python
+s = 'Hello world, Python programmers!!!'
+s.startswith('Hello') #True
+s.endswith('!!!') #True
+```
+
+### find() and index()
+Use find(substring) or index(substring) to find the position of the first occurence of the substring.  If you need to start from the end use rfind() or rindex().  For example:
+
+```python
+>>> s = 'Hello world, Python programmers!!!'
+s.find('Python') # 13
+s.index('Python') # 13
+```
+
+If the substring is not found, find will retuern -1, but index will return an exception.
+
+### Case functions
+
+* capitalize() capitalize the first letter of the string.
+* title() capitalize ther first letter of each word.
+* upper() covert all characters to uppercase.
+* lower() convert all characters to lowercase.
+* swapcase()  swap uppercase and lowercase.
