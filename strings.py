@@ -12,3 +12,4 @@ print(text)
 print(text.rstrip())
 print(text.lstrip())
 print(text.strip())
+

@@ -177,6 +177,7 @@ s = '''This is a
     lines
 ```
 
+## f-strings
 You can format string using f or F  For example:
 
 ```python
@@ -185,7 +186,25 @@ b = 10
 c = a + b
 s = f'The sum of {a} + {b} is {c}' # 'The sum of 5 + 10 is 15'
 ```
-Also you can start a string with r or R to create a raw string.  Raw string  prevent escape sequences.  For example"
+
+You can add padding to the left, center or righ, using a specific character.  For example:
+
+```python
+name1 = 'Blas'
+name2 = 'Yady'
+name3 = 'Natalia'
+f'Name1: {name1}. Name2: {name2}.  Name3: {name3}'                  # 'Name1: Blas. Name2: Yady.  Name3: Natalia'
+f'Name1: {name1:>10}. Name2: {name2}.  Name3: {name3}'              # 'Name1:       Blas. Name2: Yady.  Name3: Natalia'
+f'Name1: {name1:>10}. Name2: {name2:^10}.  Name3: {name3:<10}'      # 'Name1:       Blas. Name2:    Yady   .  Name3: Natalia   '
+>>> f'Name1: {name1:>10}. Name2: {name2:.^10}.  Name3: {name3:<10}' # 'Name1:       Blas. Name2: ...Yady....  Name3: Natalia   '
+```
+if you want to print the variables names and its value, yo can use {variable_name=}.  For example:
+
+```python
+f'{name1=}. {name2=}. {name3=}' # "name1='Blas'. name2='Yady'. name3='Natalia'"
+```
+## Raw Strings
+You can start a string with r or R to create a raw string.  Raw string  prevent escape sequences.  For example"
 
 ```python
 s = r'Use \n to add a new line'  # 
@@ -328,3 +347,12 @@ If the substring is not found, find will retuern -1, but index will return an ex
 * upper() covert all characters to uppercase.
 * lower() convert all characters to lowercase.
 * swapcase()  swap uppercase and lowercase.
+
+### alignment
+You can align center, left or right with the specified number of spaces.  For example:
+
+```python
+s.center(50)    # '        Hello world, Python programmers!!!        '
+s.ljust(50)     # 'Hello world, Python programmers!!!                '
+s.rjust(50)     #'                Hello world, Python programmers!!!'
+```
