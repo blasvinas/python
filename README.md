@@ -384,3 +384,77 @@ if index != -1:
 else:
     print('There are no words sarting with m')
 ```
+
+# Loops
+
+Python has two choices for loops:  while and for.
+
+## while
+
+Below is an example of a while loop the prints the numbers from 1 to 5.
+
+```python
+n = 1
+while n <=5:
+    print(n)
+    n += 1
+```
+
+You can cancel a loop with break or skip until the next iteration with continue.  Below is an example of a  infinite while loop that stops when the udse enters 'q'.
+
+```python
+>>> while True:
+...     s = input('Enter a string to ve converted to uppercase or q to quit')
+...     if s == 'q':
+...             break
+...     print(s.upper())
+```
+
+The following example uses continue to skips the odd numbers and only prints the even ones.
+
+```python
+n = 0
+while n <= 10:
+    n += 1
+    if n % 2 != 0:
+        continue
+    print(n)
+```
+
+You can use else with break.  If no break if called, the statements that belong to the else block will be executed.  For example:
+
+```python
+numbers = [1, 4, 8, 9]
+n = 1
+count = len(numbers)
+while n < count:
+    if numbers[n] < 0:
+            break
+    n += 1
+else:
+    print('No negatives numbers were found')
+```
+
+## for
+
+You can use for with in to traverse string and some data structures like list, tuples and dictionaries.   The following example prints the letters of a string one at the time.
+
+```python
+ s = 'Hello world!'
+ for c in s:
+    print(c)
+```
+
+You can use continue, break and else the same way explaned about for the while loop.
+
+### range()
+range() us frequently used for for loops.  rage() will return a stream of numbers within the specified range.  The syntax in range(start, stop, step).  This will generate a stream start at starty until stop - 1 and skippig the nuber specified by step.  For example:
+
+```python
+range(0,5) # 0,1,2,3,4
+range(5,-1,-1) # 5,4,3,2,1,0
+
+# prints numbers from 0 to 9
+for x in range(1,10):
+    print(x)
+```
