@@ -694,3 +694,25 @@ You can create list using list comprenhension.  The sytam is: [expression for it
 even = [number for number in range(0,11) if number %2 == 0] # [0, 2, 4, 6, 8, 10]
 ```
 
+## Example using lists
+
+```python
+#Create a list with numbers in words
+my_list = ['one','two','three','four']
+
+#Create a new list using list comprehension with item capitalized
+new_list = [number.capitalize() for number in my_list]
+print(new_list)
+
+#Create a new list sprted alphabetically
+new_list = sorted(my_list)
+print(new_list)
+
+#add a element to the list
+my_list.append('five')
+print(my_list)
+
+#Delete the first item
+del my_list[0]
+print(my_list)
+```
