@@ -3,8 +3,11 @@ This file has some basic notes about how to use Python
 
 * [Variables](#variables)
 * [Numbers](#numbers)
-* [Strings](#strings)
 * [if](#if)
+* [Strings](#strings)
+* [Loops](#loops)
+* [Tuples](#tuples)
+* [Lists](#lists)
 
 # Variables
 In python variable a just references to an object in memory.  For example:
@@ -458,3 +461,34 @@ range(5,-1,-1) # 5,4,3,2,1,0
 for x in range(1,10):
     print(x)
 ```
+# Tuples
+
+Tuple is a immutable sequence structure.  Each item in the tuple can be any Python object.
+
+You create tuples using ().  For example:
+
+```python
+t = ()  # Empty tuple
+days = (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+year = (2020, ) # one element tuples must include the comma at the end.
+```
+
+You can convert other structures to tuple using the tuple() function.  For example:
+```python
+my_list = [1, 2, 3, 4, 5]
+my_tuple = tuple(my_list)
+```
+You can combine tuples using +.  For example:
+```python
+t1 = (1, 2, 3)
+t2 = (4, 5, 6)
+t3 = t1 + t2
+```
+
+You can duplicate a tuple using *.  For example:
+```python
+t = (1, 2, 3)
+t * 3 # (1, 2, 3, 1, 2, 3, 1, 2, 3)
+```
+
+# Lists
