@@ -492,3 +492,205 @@ t * 3 # (1, 2, 3, 1, 2, 3, 1, 2, 3)
 ```
 
 # Lists
+
+List are similar to tuples but the big difference is that list are mutable.
+
+You create a list using [].  For example:
+
+```python
+l = [] # empty list
+numbers = [1, 2, 3, 4, 5]
+```
+
+You can convert other typles to a list using the list() function.  For example:
+
+```python
+my_tuple = ('a', 'b', 'c', 'd')
+my_list = list(my_tuple)
+```
+
+You can use an index to access individual elements of a list.  For example:
+
+```python
+numbers = [1, 2, 3, 4, 5]
+numbers[1] # 2
+numbers[-1] # 5
+```
+
+You can also use slices.  Check strings for more information about slices.
+
+## List common functions
+
+### reverse()
+reverse() reverses a list in place.  For example:
+```python
+my_list = [1, 2, 3, 4, 5]
+my_list.reverse() # [5, 4, 3, 2, 1]
+```
+
+### append()
+
+append() adds an element at the end of the list.  For example:
+
+```python
+my_list = [1, 2, 3, 4, 5]
+my_list.append(6) # [1, 2, 3, 4, 5, 6]
+```
+
+### insert()
+
+insert() add an element before the specified position.  For example:
+
+```python
+my_list = [1, 2, 3, 4, 5]
+my_list.insert(2,10) # [1, 2, 10, 3, 4, 5, 6]
+```
+
+### Change items with slice
+
+You can change the items in a list using slices.  Fr example:
+
+```python
+my_list = [1, 2, 3, 4, 5]
+my_list[1:3] = [7, 8] # [1, 7, 8, 4, 5]
+my_list[2:4] = [10, 11, 12, 13] #[1, 7, 10, 11, 12, 13, 5]
+```
+### del
+
+del deletes ther specified element.  For example:
+
+```python
+my_list = [1, 2, 3, 4, 5]
+del my_list[3] # [1, 2, 3, 5]
+```
+
+### remove()
+
+You can remove an item by  value using remove().  For example:
+
+```python
+my_list = ['one', 'two', 'three', 'four']
+my_list.remove('three') # ['one', 'two', 'four']
+```
+
+### pop()
+
+pop() removes an item from the list and return its value. pop() without paremeters use -1.  For example:
+
+```python
+my_list = ['one', 'two', 'three', 'four']
+n = my_list.pop() # n = 'four'. my_list = ['one', 'two', 'three'] 
+>>> n = my_list.pop(1) # n = 'two'. my_list = ['one', 'three']
+```
+
+### clear()
+
+Delete all elements in a list.  For example my_list.clear().
+
+### index()
+
+index() return the first  index of the specify value.   If the value does not exist, you get an exception.  For example:
+
+```python
+my_list = ['one', 'two', 'three', 'four']
+my_list.index('two') # 1
+
+my_list.index('five')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: 'five' is not in list
+```
+
+### in
+
+in returns True is the element exist in the list.  For example:
+
+```python
+my_list = ['one', 'two', 'three', 'four']
+'three' in my_list # True
+```
+
+### count()
+
+count() counts the number of ocurrences of a value.  For example:
+
+```python
+my_list = ['one', 'two', 'three', 'four', 'two']
+my_list.count('two') # 2
+```
+
+### sort() and sorted()
+
+sort() sorts a list in place.  sorted() return a new sorted list.  For example:
+
+```python
+my_list = [4, 2, 6, 1, 3]
+my_list.sort() # [1, 2, 3, 4, 6]
+my_list = [4, 2, 6, 1, 3]
+new_list = sorted(my_list) # new_list = [1, 2, 3, 4, 6]. my_list =  [4, 2, 6, 1, 3]
+```
+###  len()
+
+len() returns the length of the list.  For example len(my_list).
+
+### copy()
+
+When you assign a list to more than one variable, changes using one variable also change the other.  For example:
+
+```python
+a = [1, 2, 3]
+b = a
+a[0] = 4 # b = [4, 2, 3]
+```
+
+Use copy to make a  copy of the list.  For example:
+
+```python
+a = [1, 2, 3]
+b = a.copy()
+>>> a[0] = 4 # a = [4, 2, 3]. b = [1, 2, 3]
+```
+
+### deepcopy()
+
+copy() make a shallow copy, which means that if the list have mutable items, if you change them in the original  variavble, it will change the copies.  For example:
+
+```python
+a = [1, 2, [6, 7]]
+b = a.copy()
+a[2][1]=8 # a = [1, 2, [6, 8]]. b = [1, 2, [6, 8]]
+```
+
+To avoid this you need to use deepcopy().  For example:
+
+```python
+import copy
+a = [1, 2, [6, 7]]
+b = copy.deepcopy(a)
+a[2][1]=8 # a = [1, 2, [6, 8]]. b = [1, 2, [6, 7]]
+```
+
+### zip()
+
+You can iterate multipe sequences using zip().  For example:
+
+```python
+numbers = ['one','two','three']
+numeros = ['uno','dos','tres']
+for number, numero in zip(numbers, numeros):
+    print(f'{number} , {numero}')
+# one , uno
+# two , dos
+# three , tres
+```
+
+If the list are not the same length, zip() will stop with the shortest one.
+
+## List Comprehension
+
+You can create list using list comprenhension.  The sytam is: [expression for item in iterable if condition].  For example:
+
+```python
+even = [number for number in range(0,11) if number %2 == 0] # [0, 2, 4, 6, 8, 10]
+```
+
