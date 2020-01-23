@@ -8,6 +8,7 @@ This file has some basic notes about how to use Python
 * [Loops](#loops)
 * [Tuples](#tuples)
 * [Lists](#lists)
+* [Dictionaries](#dictionaries)
 
 # Variables
 In python variable a just references to an object in memory.  For example:
@@ -715,4 +716,155 @@ print(my_list)
 #Delete the first item
 del my_list[0]
 print(my_list)
+```
+
+# Dictionaries
+
+A dictionary a sequence of key-value pairs.  They are mutable.
+
+You can create a dictionary with {}.  For example:  
+
+```python
+my_dict = {}
+days = {1: "Monday", 2: "Tuesday", 3: "Wednesday"}
+```
+Also you can use the dict() function to create a dictionary or convert other structures to a dictionary.  For example:
+
+```python
+my_list = [[1, "Monday"], [2, "Tuesday"], [3, "Wednesday"]] # [[1, 'Monday'], [2, 'Tuesday'], [3, 'Wednesday']]
+my_dict = dict(my_list) # {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday'}
+```
+
+## Dictionaries common functions
+
+### Add or change an item by key
+
+To add an item to a dictionary refer to the item by its key and assign a value.  If the item already exist, the existing value will be replaced.  For example:
+
+```python
+my_dict = {"one": "uno", "two": "dos", "three": "tres"}
+my_dict["four"] = "cuatro"
+my_dict # {'one': 'uno', 'two': 'dos', 'three': 'tres', 'four': 'cuatro'}
+```
+
+### Get an Item by Key
+
+You can get an item specifying the dictionary and the key.  If the key does not exist, you will get an exception.  For example:
+
+```python
+my_dict = {"one": "uno", "two": "dos", "three": "tres"}
+my_dict["two"] # "dos"
+```
+
+To avoid getting an exception, you can use the get() function.  The function does not return anything is the key does not exist.  Optionally, you can specify a default value to return if the key does not exist.  For example:
+
+```python
+my_dict.get("five") # none
+my_dict.get("five","Not found") # 'Not found'
+my_dict.get("one","Not found") # 'uno'
+```
+
+### keys(), values(), and items()
+
+You can get all the keys with the keys() function and all the values with the values() function.  For example:
+
+```python
+my_dict = {"one": "uno", "two": "dos", "three": "tres", "four": "cuatro"}
+my_dict.keys() # dict_keys(['one', 'two', 'three', 'four'])
+my_dict.values() # dict_values(['uno', 'dos', 'tres', 'cuatro'])
+```
+keys() and values() return dict_keys(), which is an iterable view  of the keys and values.  If you need a list you need to convert it using list(my_dict.keys())
+
+You can get all the key-value pair using items(). items() returns a dict_items view of tuples with the key-value pairs.  For example:
+
+```python
+my_dict = {"one": "uno", "two": "dos", "three": "tres", "four": "cuatro"}
+my_dict.items() # dict_items([('one', 'uno'), ('two', 'dos'), ('three', 'tres'), ('four', 'cuatro')])
+```
+
+### len()
+
+You can get the lenght of a dictionary using len().  For example: len(my_dict)
+
+### Combine dictionaries
+
+You can combine several dictionaries using **.  For example:
+
+```python
+a = {1: "one", 2: "two"}
+b = {3: "three", 4: "four"}
+c = {5: "five", 6: "six"}
+d = {**a, **b, **c} # {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six'}
+```
+Also you can combine dictionaries with update().   For example:
+
+```python
+a = {1: "one", 2: "two"}
+b = {3: "three", 4: "four"}
+a.update(b) #  a = {1: 'uno', 2: 'two', 3: 'three', 4: 'four'}
+```
+
+### del
+
+You can delete an item from a dictionary using del.  For example del my_dict["one"]
+
+### pop()
+
+pop() takes a key as an argument and return the value and delete the item.  If the key does not exist, it raises an exception.  For example:
+
+```python
+my_dict = {'one': 'uno', 'two': 'dos', 'three': 'tres', 'four': 'cuatro'}
+v = my_dict.pop("three")
+# v = 'tres'
+# my_dict = {'one': 'uno', 'two': 'dos', 'four': 'cuatro'}
+```
+
+### clear()
+
+clear() deletes all the items in the dictionary.  For example:  my_dict.clear().
+
+### in
+
+You can test if a key exist in a dictionary using in.  For example:  "one" in my_dict
+
+### copy() and deepcopy()
+
+These two functions work in a similar way than list.  Please check them in the list section for more details.
+
+### Compare dictionaries
+
+You can compare dictionaries using == and !=.  Python compares if each key-value pair from one dictionary is present in the other one.  The order of then keys is not important.
+
+## Iterate over a dictionary
+
+Iterating over a dictionary usinfg in returns the keys.  For example:
+
+```python
+ my_dict = {'one': 'uno', 'two': 'dos', 'three': 'tres', 'four': 'cuatro'}
+ for value in my_dict:
+     print(value)
+
+# one
+# two
+# three
+# four
+```
+
+Also you can use iterate using items as shown in the example below.
+
+```python
+for key, value in my_dict.items():
+    print(key, value)
+# one uno
+# two dos
+# three tres
+# four cuatro
+```
+## Dictionary comprenhensons
+
+Dictionaries also have comprenhensions similar to list. The syntax is {key_expression, value_expression for expression in iterable if condition }  For example:
+
+```python
+names = ['john','Katy','Chris','Nancy']
+my_dict = { names.index(name) + 1  : name  for name in names } # {1: 'john', 2: 'Katy', 3: 'Chris', 4: 'Nancy'}
 ```
