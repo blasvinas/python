@@ -9,6 +9,7 @@ This file has some basic notes about how to use Python
 * [Tuples](#tuples)
 * [Lists](#lists)
 * [Dictionaries](#dictionaries)
+* [Sets](#sets)
 
 # Variables
 In python variable a just references to an object in memory.  For example:
@@ -860,11 +861,166 @@ for key, value in my_dict.items():
 # three tres
 # four cuatro
 ```
-## Dictionary comprenhensons
+## Dictionary comprehensions
 
 Dictionaries also have comprenhensions similar to list. The syntax is {key_expression, value_expression for expression in iterable if condition }  For example:
 
 ```python
 names = ['john','Katy','Chris','Nancy']
 my_dict = { names.index(name) + 1  : name  for name in names } # {1: 'john', 2: 'Katy', 3: 'Chris', 4: 'Nancy'}
+```
+
+## Example usinf dictionaries
+
+```python
+ Create an English-French dictiorary
+
+e2f = {'dog': 'chien', 'cat': 'chat', 'walrus': 'morse'}
+print(f"Walrus in French is {e2f['walrus']}")
+
+#  Create a French to English dictionary
+
+f2e = {}
+for english, french in e2f.items():
+    f2e[french] = english
+print(f2e)
+```
+
+# Sets
+
+The items in a set must be unique.  Sets are unordered and mutsble.  You can create set using set().  For example:
+
+```python
+my_set = set() # set()
+my_set = {1,2,3,4,5} # {1, 2, 3, 4, 5}
+```
+You can covert other structure to sets using set().  For example:
+
+```python
+my_list = [1,2,3,4,5]
+my_set = set(my_list) # {1, 2, 3, 4, 5}
+```
+
+## Common Set Functons
+
+### len()
+
+You can get the length of a set using len().  For example:  len(my_set).
+
+### add()
+
+You can add a item to a set using add().  For example:
+
+```python
+my_set = {1,2,3,4,5}
+my_set.add(6) # {1, 2, 3, 4, 5, 6}
+```
+### remove()
+
+You can remove an item from a set using remove().  For example:
+
+```python
+my_set = {1,2,3,4,5}
+my_set.remove(3) # {1, 2, 4, 5, 6}
+```
+
+### in
+
+You can check if an item is in a set using in.  For example 4 in my_set.
+
+### Operators
+
+#### Intersection (&)
+
+You can get the intersection of two sets using the & operator.  For example:
+
+```python
+s1 = {1,2,3,4,5}
+s2 = {4,5,6,7,8}
+s1 & s2 # {4, 5}
+```
+
+#### Union (|)
+
+You can get the union of two sets using the | operator.  For example:
+
+```python
+s1 = {1,2,3,4,5}
+s2 = {4,5,6,7,8}
+s1 | s2 # {1, 2, 3, 4, 5, 6, 7, 8}
+```
+
+#### diference() (-)
+
+To get the difference between to sets use difference() or the  - operator.  For example:
+
+```python
+s1 = {1,2,3,4,5}
+s2 = {4,5,6,7,8}
+s1.difference(s2) # {1, 2, 3}
+s1 - s2 # {1, 2, 3}
+```
+
+#### Exclusive or (^)
+
+You can get the exclusive or using the ^ operator.  For example:
+
+```python
+s1 = {1,2,3,4,5}
+s2 = {4,5,6,7,8}
+s1 ^ s2 # {1, 2, 3, 6, 7, 8}
+```
+
+#### Subset
+
+You can find if a set is a subset of another ser using issubset() or the <= operator.  For example:
+
+```python
+s1 = {1, 2, 3}
+s2 = {1, 2, 3, 4, 5}
+s1 <= s2 # True
+s1.issubset(s2) # True
+```
+
+You if need to now if a set is a proper subset (the second set needs to have al members of the first and more) use <.
+
+#### Superset
+
+You can find if a set is a superset of another ser using issuperset() or the >= operator.  For example:
+
+```python
+s1 = {1, 2, 3}
+s2 = {1, 2, 3, 4, 5}
+s2 >= s1 # True
+s2.issuperset(s1) # True
+```
+
+You if need to now if a set is a proper superset (the first set needs to have al members of the second and more) use >.
+
+## Set Comprehensions
+
+You can use set comprehension in a similar one that you use it with other structures.  The syntax is: { expression for expression in iterable if condition } . For example:
+
+```python
+my_set = { number * 2 for number in range(0, 11) if number %2 == 0} # {0, 4, 8, 12, 16, 20}
+```
+
+## Immutable Sets
+
+You can create immutable sets using frozenset.  For example:  fs = frozenset([1, 2, 3])
+
+## Example using sets
+
+```python
+# Create a set with odd number using comprehensions
+odd_numbers = { number for  number in range(0,10) if number % 2 != 0}
+print(odd_numbers)
+
+#Create a set with the even numbers using comprehension
+even_numbers = { number for number in range(0, 11) if number % 2 == 0}
+print(even_numbers)
+
+#Get the union between odd_numbers and even_numbers
+numbers = even_numbers | odd_numbers
+print(numbers)
 ```
