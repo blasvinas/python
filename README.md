@@ -1026,7 +1026,7 @@ numbers = even_numbers | odd_numbers
 print(numbers)
 ```
 
-# Fuctions
+# Functions
 
 In Python you define a function using def, followed by the name of the function and then parenthesis with zero or more parameters inside.  Also, function might return zero ort more values.  For example:
 
