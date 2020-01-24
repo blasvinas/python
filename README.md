@@ -10,6 +10,7 @@ This file has some basic notes about how to use Python
 * [Lists](#lists)
 * [Dictionaries](#dictionaries)
 * [Sets](#sets)
+* [Functions](#functions)
 
 # Variables
 In python variable a just references to an object in memory.  For example:
@@ -1024,3 +1025,22 @@ print(even_numbers)
 numbers = even_numbers | odd_numbers
 print(numbers)
 ```
+
+# Fuctions
+
+In Python you define a function using def, followed by the name of the function and then parenthesis with zero or more parameters inside.  Also, function might return zero ort more values.  For example:
+
+```python
+# This function takes zero paramenters and return zero values
+def f1():
+    pass
+
+# This function takes one parameter but it does not return any values
+def f2(message):
+    print(message)
+
+# This function takes one parameter and returns one value
+def f3(number):
+    return number * 2
+```
+
