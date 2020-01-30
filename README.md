@@ -1043,4 +1043,76 @@ def f2(message):
 def f3(number):
     return number * 2
 ```
+## Arguments
+
+### Positional Arguments
+Positional arguments is when the values are copied to their correcponding parameters in order.  For example:
+```python
+def name(first_name, middle_name, last_name):
+    print(f"First Name: {first_name}.  Middle Name: {middle_name}.  Last Name: {last_name}")
+
+name("Jose","Maria","Feliciano") # First Name: Jose.  Middle Name: Maria.  Last Name: Feliciano
+```
+
+### Keyword Arguments
+You can also specify arguments bythe names of their corresponding parameters, even in a different order.  For example:
+```python
+def name(first_name, middle_name, last_name):
+    print(f"First Name: {first_name}.  Middle Name: {middle_name}.  Last Name: {last_name}")
+
+name(last_name="Feliciano", first_name="Jose", middle_name="Maria") # First Name: Jose.  Middle Name: Maria.  Last Name: Feliciano
+name("Jose", last_name="Feliciano", middle_name="Maria") # First Name: Jose.  Middle Name: Maria.  Last Name: Feliciano
+```
+
+The last line in the previous example mixed positional and keyword arguments.  Just make sure that the positional arguments come first.
+
+### Default Values
+You can specify default values for parameters.  The default value is use if the function is called without providing a corresponding argument.  For example.
+```python
+def name(first_name, middle_name, last_name="Unknown"):
+    print(f"First Name: {first_name}.  Middle Name: {middle_name}.  Last Name: {last_name}")
+name("Jose","Maria") # First Name: Jose.  Middle Name: Maria.  Last Name: Unknown
+```
+
+The argument with default values must be and the end of the argument list.
+
+### Variable number of Arguments
+You can define a function to take a variable number of arguments as showen in the example below.
+```python
+def var_args(*args):
+    for item in args:
+        print(item)
+
+var_args()
+var_args(1,2,3)
+# 1
+# 2
+# 3
+```
+
+You can combine required argument with variablesones, but the variable must be the last ones.  For example:
+```python
+def var_args(a,b,*args):
+    print(a)
+    print(b)
+    for item in args:
+        print(item)
+
+var_args('a','b',1,2,3)
+# a
+# b
+# 1
+# 2
+# 3
+```
+
+Also you can pass a variable number of keyword arguments as shown below.
+```python
+def var_kwargs(**kwargs):
+    for key, value in kwargs.items():
+        print(key, value)
+var_kwargs(one='uno', two='dos')
+# one uno
+#two dos
+```
 
