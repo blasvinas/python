@@ -1113,6 +1113,70 @@ def var_kwargs(**kwargs):
         print(key, value)
 var_kwargs(one='uno', two='dos')
 # one uno
-#two dos
+# two dos
 ```
 
+## Docstring
+You can attach documentation to a function definition by including a string at the begining of the body.  For example:
+```python
+def add(a,b):
+    'return the addition of two numbers'
+    return a + b
+```
+
+You  get printn the documentation of the function as shown below.
+
+```python
+help(add)
+Help on function add in module __main__:
+
+add(a, b)
+    return the addition of two numbers
+
+print(add.__doc__)
+return the addition of two numbers
+```
+
+## Function are Objects
+Functions are objects like any other type in Python, so the function name without the parenthesis, returns the object.  You can pass a function as a parameter to another function.  For example:
+```python
+def add(a,b):
+    'return the addition of two numbers'
+    return a + b
+
+def run_function(func, x, y):
+    print(func(x,y))
+
+run_function(add,4,3) # 7
+```
+
+## Inner Functions
+You can define a function inside another function as shown below:
+```python
+def outer(a,b):
+    def inner(c,d):
+        return c + d
+    return inner(a,b)
+
+outer(2,5) # 7
+```
+
+## Closures
+A closure is a inner function that remember the values of the variables that were created outside the function.  For example:
+```python
+def outer(a,b):
+    def inner():
+        return a + b
+    return inner()
+
+outer(2,5) # 7
+```
+
+## Lambda Functions
+Lambda function is an anonymouns function expresed as a single statement.  For example:
+```python
+x =  lambda a: a * 2
+x(2) # 4
+```
+
+Lambda  a normally used to define callback functions.
