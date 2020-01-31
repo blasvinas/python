@@ -11,6 +11,7 @@ This file has some basic notes about how to use Python
 * [Dictionaries](#dictionaries)
 * [Sets](#sets)
 * [Functions](#functions)
+* [Exceptions](#exceptions)
 
 # Variables
 In python variable a just references to an object in memory.  For example:
@@ -1179,4 +1180,142 @@ x =  lambda a: a * 2
 x(2) # 4
 ```
 
+The inner function above, can we rewriten using lambdas as follow.
+```python
+def outer(a,b):
+    return (lambda a,b: a  + b)(a,b)
+
+outer(5,4) # 9
+```
 Lambda  a normally used to define callback functions.
+
+
+## Generators
+A generator can create huge sequences without storing the entire sequence in memory.  Generators  are often the source of iterators.
+
+### Generator Functions
+Generator functions are similar to regular function, bvut they return a value using yield instead of return.  Below is a version of range.
+```python
+>>> def my_range(first=0, last=10, step=1):
+...     number = first
+...     while number < last:
+...             yield number
+...             number += step
+... 
+range = my_range()
+for item in range:
+    print(item)
+
+# 0
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7 
+# 8
+# 9
+```
+
+### Generator Comprehensions
+You can use generator comprehension in a similar way that you use comprehensions for list and dictionaries.   For example:
+```python
+g = (item for item in range(1,10))
+for i in g:
+    print(i)
+
+# 0
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7 
+# 8
+# 9
+```
+
+## Decorators
+Decorators let you change an existing function without changing the source code.  For example:
+
+```python
+def triple(func):
+    def f(*args, **kwargs):
+            result = func(*args, **kwargs)
+            return result * result * result
+    return f
+
+@triple
+def add(a,b):
+    return a + b
+
+add(2,3) # 125
+```
+
+## Namespaces and Scope
+Variables defines outside any functions are global variables and variable define inside a function are local variables.  If you assing a value tpo a variable with the same name as a global variable, it will creater a different local variable.  If you need to change the value of the global variable use global vsriable_name = value.   For example:
+
+```python
+number = 10
+def f():
+    number = 5
+    print(number)
+
+f() #5
+number # 10
+
+def f():
+    print(number)
+    number = 5
+    print(number)
+
+f()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 2, in f
+
+def f():
+    global number
+    number = 5
+    print(number)
+... 
+f() # 5
+number # 5
+```
+
+As you can see in the examples above, if you get the value of a global variable and then try to change it, you will get an error.
+
+Python has 2 function to access the content of your workspaces:
+
+* locals() returns a dictionary of the contents of the local namespace.
+* globals() returns a dictionary  of the contents of the global namespace.
+
+## __ in Names
+Names that start and end with two underscores are reserved for Python.  __name__ contains the name of the function and __doc__ contains its documentation string.
+```python
+def add(a,b):
+    'adds two numbers'
+    return a + b
+
+add.__name__ # 'add'
+add.__doc__ # 'adds two numbers'
+```
+
+# Exceptions
+You can handle exception with the try - except block as show in the example below:
+```python
+my_list = [1,2,3,4,5]
+
+def print_item(number):
+    try:
+            print(my_list[number])
+    except IndexError as err:
+            print(f'Bad Index. {err}')
+    except Exception as other:
+            print(f'Error: {other}')
+
+print_item(3) # 4
+print_item(7) # Bad Index. list index out of range
+```
